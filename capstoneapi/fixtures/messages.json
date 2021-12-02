@@ -1,0 +1,11 @@
+[
+    {
+        "model": "capstoneapi.message",
+        "pk": 1,
+        "fields": {
+            "contact": 1,
+            "message": "You are amazing",
+            "message_date": "2021-12-12"
+        }
+    }
+]

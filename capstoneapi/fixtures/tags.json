@@ -1,0 +1,30 @@
+[
+    {
+        "model": "capstoneapi.tag",
+        "pk": 1,
+        "fields": {
+            "label": "#Love"
+        }
+    },
+    {
+        "model": "capstoneapi.tag",
+        "pk": 2,
+        "fields": {
+            "label": "#Funny"
+        }
+    },
+    {
+        "model": "capstoneapi.tag",
+        "pk": 3,
+        "fields": {
+            "label": "#Touching"
+        }
+    },
+    {
+        "model": "capstoneapi.tag",
+        "pk": 4,
+        "fields": {
+            "label": "#Wild"
+        }
+    }
+]

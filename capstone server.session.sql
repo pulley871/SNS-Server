@@ -1,0 +1,1 @@
+DELETE FROM capstoneapi_smsresponse WHERE id = 1

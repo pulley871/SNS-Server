@@ -1,0 +1,10 @@
+[
+    {
+        "model": "capstoneapi.messagetag",
+        "pk": 1,
+        "fields":{
+            "tag": 1,
+            "message": 1
+        }
+    }
+]

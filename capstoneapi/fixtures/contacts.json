@@ -1,0 +1,34 @@
+[
+    {
+        "model": "capstoneapi.contacts",
+        "pk": 1,
+        "fields": {
+            "app_user": 1,
+            "name": "Josh Pulley"
+        }
+    },
+    {
+        "model": "capstoneapi.contacts",
+        "pk": 2,
+        "fields": {
+            "app_user": 1,
+            "name": "Jesse Brown"
+        }
+    },
+    {
+        "model": "capstoneapi.contacts",
+        "pk": 3,
+        "fields": {
+            "app_user": 1,
+            "name": "Jay Pugh"
+        }
+    },
+    {
+        "model": "capstoneapi.contacts",
+        "pk": 4,
+        "fields": {
+            "app_user": 1,
+            "name": "Darby Pulley"
+        }
+    }
+]
