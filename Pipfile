@@ -13,6 +13,7 @@ pylint-django = "*"
 twilio = "*"
 pyngrok = "*"
 django-twilio = "*"
+django-environ = "*"
 
 [dev-packages]
 

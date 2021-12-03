@@ -9,9 +9,10 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import environ 
 from pathlib import Path
-
+env = environ.Env()
+environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,9 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e*qxqv0*3)ddl@fj@&rrdt3b_mz0b_wxqzsm&)0)i&sy6ayj7='
-TWILIO_ACCOUNT_SID = 'AC92b27c328be14b7d723be4629fff7fbc'
-TWILIO_AUTH_TOKEN = 'e6064d7e051cf440e295db9d0a7d6581'
+SECRET_KEY = env("SECRET_KEY")
+TWILIO_ACCOUNT_SID = env("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = env("TWILIO_AUTH_TOKEN")
 DJANGO_TWILIO_BLACKLIST_CHECK = True
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
