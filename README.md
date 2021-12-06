@@ -1,4 +1,5 @@
-# SNS Platform API
+# SN![SNS](https://user-images.githubusercontent.com/73911337/144897638-9facefad-b79e-4a4a-a685-82a2f265e8ef.png)
+S Platform API
 
 SNS is a platform where users can safly save those very cherised messages from your loved ones in a easy to use, friendly, and clean way.
 Lets just say that your messages will be "Said In Stone"!
