@@ -18,7 +18,7 @@ from django.conf.urls import url
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from capstoneapi.views import sms_response, ContactsView, MessageView, TagView, login_user, register_user
+from capstoneapi.views import sms_response, ContactsView, MessageView, TagView, login_user, register_user, Home
 
 
 router = routers.DefaultRouter(trailing_slash=False)
@@ -30,5 +30,6 @@ urlpatterns = [
     path('sms', sms_response),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
     path('login', login_user),
-    path('register', register_user)
+    path('register', register_user),
+    path('home', Home)
 ]

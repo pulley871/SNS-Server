@@ -15,8 +15,22 @@ class MessageView(ViewSet):
     def list(self, request):
         """List all Messages per contact, will not have a list that list all messages in the database"""
         try:
-            contact = self.request.query_params.get("contact_id", None)
-            messages = Message.objects.filter(contact=contact).order_by('message_date')
+            #contact = self.request.query_params.get("contact_id", None)
+            messages = Message.objects.filter(contact__id=request.data['contact_id']).order_by('message_date')
+            tag_selected = self.request.query_params.get("tag_selected", None)
+            date_selected = self.request.query_params.get("date_selected", None)
+            message_body_search = self.request.query_params.get("message_body_search", None)
+            if tag_selected is not None:
+                filtered_messages = []
+                for message in messages:
+                    for tag in message.tags.all():
+                        if tag.id == int(tag_selected):
+                            filtered_messages.append(message)
+                messages = filtered_messages
+            if date_selected is not None:
+                messages = messages.filter(message_date=date_selected)
+            if message_body_search is not None:
+                messages = messages.filter(message__contains=message_body_search)
             data = MessageSer(messages, many=True, context={"request": request})
             return Response(data.data, status=status.HTTP_200_OK)
         except Exception as ex:

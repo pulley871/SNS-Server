@@ -16,6 +16,10 @@ class ContactsView(ViewSet):
     def list(self, request):
         user = AppUser.objects.get(user=request.auth.user)
         contacts = Contacts.objects.all().filter(app_user=user)
+        contact_search = self.request.query_params.get("contact_name", None)
+        #Filters Contacts By Search Term passed in 
+        if contact_search is not None:
+            contacts = contacts.filter(name__contains=contact_search)
         for contact in contacts:
             contact.messages = contact.message_set
         contacts = ContactsSer(contacts, many=True, context={"request", request})
