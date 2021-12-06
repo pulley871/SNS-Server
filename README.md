@@ -31,4 +31,11 @@ Here is the ERD for the models in the api: https://drawsql.app/nashville-softwar
 
 Register a new User then begin by adding a contact and start saving messages.
 You can add/edit/delete contacts and messages
-
+### Texting Functionality
+Texting functionality only enabled on demo day.
+Behavior of texting
+1. Text "New" to the provided phone number
+2. Respond with the appropriate number assigned to the contact that you want to save the message under
+3. Respond with the body of the message
+4. Respond with the date of the message
+5. Check website for the updated message list
