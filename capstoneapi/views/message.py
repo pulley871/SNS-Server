@@ -16,7 +16,8 @@ class MessageView(ViewSet):
         """List all Messages per contact, will not have a list that list all messages in the database"""
         try:
             #contact = self.request.query_params.get("contact_id", None)
-            messages = Message.objects.filter(contact__id=request.data['contact_id']).order_by('message_date')
+            contact_id = self.request.query_params.get("contact_id", None)
+            messages = Message.objects.filter(contact__id=contact_id).order_by('message_date')
             tag_selected = self.request.query_params.get("tag_selected", None)
             date_selected = self.request.query_params.get("date_selected", None)
             message_body_search = self.request.query_params.get("message_body_search", None)
