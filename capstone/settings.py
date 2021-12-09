@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'capstoneapi',
     'django_twilio',
+    'channels',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -56,6 +57,11 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
         'rest_framework.permissions.AllowAny',
     ],
+}
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
 }
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
@@ -93,7 +99,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'capstone.wsgi.application'
-
+ASGI_APPLICATION = "capstone.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

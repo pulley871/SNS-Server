@@ -1,7 +1,8 @@
 from capstoneapi.models import SmsResponse, Message
 from capstoneapi.models.contacts import Contacts
 from datetime import datetime
-
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
 def sms(request, user):
     temp = None
     try:
@@ -26,6 +27,9 @@ def sms(request, user):
 
                 )
                 temp.delete()
+                channel_layer = get_channel_layer()
+            
+                async_to_sync(channel_layer.group_send)("BACKEND",{"type": "sendUpdate", "message":"update"})
                 return "Your message has been saved!"
             else:
                 return "Your date did not match. Please resend the date in this format YYYY-MM-DD"

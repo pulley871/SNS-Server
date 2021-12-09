@@ -1,6 +1,7 @@
 from capstoneapi.models import Contacts, Message
 from rest_framework import serializers
-
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
 
 
 def save_message(request, user):
@@ -12,6 +13,7 @@ def save_message(request, user):
             contact = contact,
             message = body
         )
+        
         return "Message Saved. Type 'New' to get started on a new message!"
     except:
         return "Please use provided formate NUMBER || Message \n Example:\n 1 || You are the greatest"

@@ -41,6 +41,7 @@ class ContactsView(ViewSet):
             contact = Contacts.objects.get(app_user__user=request.auth.user, pk=pk)
             contact.messages = contact.message_set
             data = ContactsSer(contact, many=False, context={"request", request})
+            
             return Response(data.data, status=status.HTTP_200_OK)
         except Contacts.DoesNotExist as ex:
             return Response({"Message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)

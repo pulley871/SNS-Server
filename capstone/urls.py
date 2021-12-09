@@ -18,15 +18,17 @@ from django.conf.urls import url
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from capstoneapi.views import sms_response, ContactsView, MessageView, TagView, login_user, register_user, Home
-
+from capstoneapi.views import sms_response, ContactsView, MessageView, TagView, login_user, register_user, Home, Index
+from django.core.asgi import get_asgi_application
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'contacts',ContactsView, 'contact')
 router.register(r'messages', MessageView, 'message')
 router.register(r'tags', TagView, 'tag')
+
 urlpatterns = [
     path('', include(router.urls)),
+    path(r"", get_asgi_application()),
     path('sms', sms_response),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
     path('login', login_user),
